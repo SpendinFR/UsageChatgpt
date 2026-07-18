@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ChatGPT Conversation Usage</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="heading">
+        <strong>ChatGPT Usage <span>v0.5</span></strong>
+        <small id="subtitle">Local analysis</small>
+      </div>
+      <button id="refresh" class="refresh" type="button" title="Refresh" aria-label="Refresh">↻</button>
+    </header>
+
+    <nav aria-label="ChatGPT plan">
+      <button type="button" data-plan="free">Free</button>
+      <button type="button" data-plan="plus">Plus</button>
+      <button type="button" data-plan="pro">Pro</button>
+    </nav>
+
+    <section id="loading" class="card loading">
+      <i aria-hidden="true"></i>
+      <span>Analyzing…</span>
+    </section>
+
+    <section id="error" class="card error hidden" aria-live="assertive">
+      <strong>Analysis failed</strong>
+      <p id="errorText"></p>
+    </section>
+
+    <section id="result" class="hidden" aria-live="polite">
+      <section class="card gauge-card">
+        <div class="score-row">
+          <div>
+            <small>Estimated usage</small>
+            <strong id="score">0%</strong>
+          </div>
+          <em id="badge">OK</em>
+        </div>
+
+        <div
+          class="track"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <div id="bar"></div>
+        </div>
+
+        <div class="charge-row">
+          <span id="message">Comfortable headroom.</span>
+          <b id="chargeSummary">0 / 1,980</b>
+        </div>
+      </section>
+
+      <details id="details">
+        <summary>
+          <span>Useful details</span>
+          <small>tokens, model, structure</small>
+        </summary>
+
+        <section class="details-panel">
+          <div class="detail-row">
+            <span>Effective load</span>
+            <b id="effectiveCharge">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Assistant / tools</span>
+            <b id="technicalCounts">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Hidden / system</span>
+            <b id="excludedCounts">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Apparent compression</span>
+            <b id="compression">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Historical tokens</span>
+            <b id="rawTokens">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Recent 128 tokens</span>
+            <b id="recentTokens">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Active branch / full tree</span>
+            <b id="nodes">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Turns / messages</span>
+            <b id="messages">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Code / tools</span>
+            <b id="contentShares">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Files / summary markers</span>
+            <b id="filesMarkers">—</b>
+          </div>
+          <div class="detail-row">
+            <span>Detected model</span>
+            <b id="model">—</b>
+          </div>
+
+          <button id="copy" class="copy" type="button">Copy statistics</button>
+          <small class="disclaimer">
+            Token values are local estimates, not official OpenAI counters.
+          </small>
+        </section>
+      </details>
+    </section>
+  </main>
+
+  <script src="core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

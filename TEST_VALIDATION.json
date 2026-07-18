@@ -1,0 +1,41 @@
+{
+  "version": "0.5.0",
+  "formula": "assistant + tool - hidden - system",
+  "thresholds": {
+    "free": 900,
+    "plus": 1980,
+    "pro": 4230
+  },
+  "calibration_tests": [
+    {
+      "name": "fonctionnelle avant blocage",
+      "charge": 1930,
+      "percent": 97.5,
+      "state": "danger"
+    },
+    {
+      "name": "bloquée après grosse tâche",
+      "charge": 2052,
+      "percent": 103.6,
+      "state": "limit"
+    },
+    {
+      "name": "API audio bloquée",
+      "charge": 2518,
+      "percent": 127.2,
+      "state": "limit"
+    },
+    {
+      "name": "Ultra-Live fonctionnelle",
+      "charge": 669,
+      "percent": 33.8,
+      "state": "ok"
+    }
+  ],
+  "confirmed_limit_detection": true,
+  "network_and_project_logic_retained": true,
+  "details_panel": true,
+  "status_badge_contrast_fixed": true,
+  "language": "English",
+  "readme": "README.md"
+}
