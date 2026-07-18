@@ -114,20 +114,6 @@ Token counts are estimated locally. They are not official OpenAI usage values.
 5. Click **Load unpacked**.
 6. Select the folder that contains `manifest.json`.
 
-### Firefox — temporary development installation
-
-1. Download or clone this repository.
-2. Extract the ZIP if necessary.
-3. Open:
-
-   ```text
-   about:debugging#/runtime/this-firefox
-   ```
-
-4. Click **Load Temporary Add-on**.
-5. Select `manifest.json`.
-
-Firefox removes temporary add-ons after the browser restarts. A permanent public Firefox release must be signed through Mozilla Add-ons.
 
 ## Usage
 
